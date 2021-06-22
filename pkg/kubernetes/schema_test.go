@@ -49,6 +49,8 @@ func TestMixin_ValidatePayload(t *testing.T) {
 		{"install-bad-wait-flag", "testdata/install-input-bad-wait-flag.yaml", false, "install.0.kubernetes.wait: Invalid type. Expected: boolean, given: string"},
 		{"install-no-manifests", "testdata/install-input-no-manifests.yaml", false, "install.0.kubernetes: manifests is required"},
 		{"install-bad-outputs", "testdata/install-input-bad-outputs.yaml", false, "install.0.kubernetes.outputs.0: resourceType is required\n\t* install.0.kubernetes.outputs.0: resourceName is required\n\t* install.0.kubernetes.outputs.0: jsonPath is required"},
+		{"mixin-config-supported", "testdata/mixin-config-supported.yaml", true, ""},
+		{"mixin-config-error", "testdata/mixin-config-error.yaml", false, "Additional property randomConfig is not allowed"},
 	}
 
 	for _, tc := range testcases {
